@@ -1,11 +1,7 @@
-def gcd(a, b):
-    while b != 0:
-        (a, b) = (b, a % b)
-    return a
+def flip_dict(s):
+    flipDict = {}
+    for k, v in s.items():
+        flipDict.setdefault(v, []).append(k)
+    return flipDict
 
-print("Podaj dwie liczby")
-a=input()
-b=input()
-a=int(a)
-b=int(b)
-print("gcd(",a,", ",b,") # =>",gcd(a,b))
+print(flip_dict({"CA": "US", "NY": "US", "ON": "CA"}))
