@@ -1,13 +1,17 @@
-def generate_pascal_row(s):
-    len = s.__len__()
-    tab = []
-    for x in range(len+1):
-        if x == 0 or x == len:
-            tab.append(1)
-        else:
-            tab.append(s[x-1] + s[x])
-    return tab
+def is_triangle_numbers(s):
+    sum = 0
+    for x in range(s.__len__()):
+        sum += ord(s[x]) - 64
+    check = 0;
+    n = 1
+    while check <= sum:
+        check = (n * (n + 1)) / 2
+        n += 1
+        if check == sum:
+            break
+    if check == sum:
+        return s + " is triangle word"
+    else:
+        return s + " is not triangle word"
 
-print(generate_pascal_row([]))
-print(generate_pascal_row([1, 2, 1]))
-print(generate_pascal_row([1, 4, 6, 4, 1]))
+print(is_triangle_numbers("SKY"))
